@@ -1,4 +1,4 @@
-# Module 15 Challenge - AutosRUs MechaCar - Statistics and R
+# Module 15 Challenge - AutosRUs MechaCar Statistical Analysis - Statistics and R
 
 ## Overview
 
