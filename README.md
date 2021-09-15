@@ -39,33 +39,33 @@ that may help the manufacturing team to alleviate production difficulties.
 - Data:
 	- `MechaCar_mpg.csv`
 		- Internal data collection, provided by AutoRUs Management
-		- Contains mpg test results for 50 prototype MechaCars
+		- Contains mpg test results for 50 prototype MechaCars (50 Records)
 	- `Suspension_Coil.csv`
 		- Internal data collection, provided by AutoRUs Management
-		- Contains results from multiple production lots
+		- Contains results from multiple production lots (150 Records)
 
 Additional information about these resources is outlined below in Tables 1 & 2.
 
 **Table 1: `MechaCar_mpg.csv` Fields**
 | Field Name		| Brief Description of Contents |
 |-----------------------|-------------------------------|
-| `vehicle_length`      | 
-| `vehicle_weight`      | 
-| `spoiler_angle`       | 
-| `ground_clearance`    | 
-| `AWD`                 | 
-| `mpg`                 | 
+| `vehicle_length`      | Vehicle Length in US-Feet, ranging between 12 and 20. Decimal Feet to 8 Decimal Places.
+| `vehicle_weight`      | Vehicle Weight in US-Pounds, ranging between 2,000 and 10,000. Decimal Pounds to 6 Decimal Places.
+| `spoiler_angle`       | Spoiler Angle in Degrees, ranging between 0 and 90. Decimal Degrees to 8 Decimal Places.
+| `ground_clearance`    | Ground Clearance in US-Inches, ranging between 6 and 18. Decimal Inches to 8 Decimal Places.
+| `AWD`                 | "All-Wheel Drive" Boolean Qualifier. 1 means vehicle is All-Wheel Drive, 0 means vehicle is not All-Wheel Drive.
+| `mpg`                 | Fuel Efficiency measured in US-Miles-per-US-Gallon, ranging between 10 and 80. Decimal mpg to 8 Decimal Places.
 
 **Table 2: `Suspension_Coil.csv` Fields**
 | Field Name		| Brief Description of Contents |
 |-----------------------|-------------------------------|
-| `VehicleID`           | 
-| `Manufacturing_Lot`   | 
-| `PSI`                 | 
+| `VehicleID`           | Alphanumeric Vehicle Identification Number. All values start with "V" followed by a 3-5 digit numeric sequence ranging between 213 and 49,408. 149 unique VehicleIDs among 150 records (V40607 is present twice, once with a record for Lot1, and once with a record for Lot2)
+| `Manufacturing_Lot`   | Alphanumeric Lot Number of Record. All values in the form of "LotN", with N being a single-digit integer, ranging between 1 and 3.
+| `PSI`                 | weight capability in US-Pounds-per-square-US-inch of suspension coils. Integer PSI values, ranging between 1,452 psi to 1,542 psi.
 
 #### Data Quality
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum. Morbi quis eros nec elit molestie vehicula. Integer nunc lacus, sodales posuere, rutrum quis, blandit at, mi. Vivamus imperdiet wisi vel mauris. Morbi mattis ante non metus. Sed turpis dui, fermentum ut, aliquam eget, vulputate ullamcorper, pede. Nam non dolor. Etiam lobortis, urna id bibendum convallis, ligula augue auctor eros, a dictum sapien mi a tellus. Proin vel justo. Nunc malesuada turpis a sapien.
+The data provided in both files appears to be consistent and reliable. All records correspond to the appropriate fields, measurements are presented with consistent units and fall within expected ranges, and there are no NULL values.
 
 ## Deliverables
 

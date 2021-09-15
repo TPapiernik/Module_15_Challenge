@@ -39,6 +39,8 @@ Backup/
 data/
 Metadata/
 Starter_Code/
+Module_15.Rproj
+.Rhistory
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -140,3 +142,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.Rproj.user
