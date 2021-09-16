@@ -38,6 +38,7 @@ config.js
 Backup/
 data/
 Metadata/
+Reports/
 Starter_Code/
 Module_15.Rproj
 .Rhistory

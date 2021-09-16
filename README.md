@@ -71,7 +71,41 @@ The data provided in both files appears to be consistent and reliable. All recor
 
 ### Deliverable 1
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet iaculis lorem non sollicitudin. Fusce elementum ac elit finibus auctor. Curabitur orci sem, accumsan a diam sit amet, efficitur tristique velit.
+#### Linear Regression to Predict MPG
+
+After the `MechaCar_mpg.csv` data was imported into R, a Multiple Linear Regression was performed
+using all of the other measured quantities in the dataset to see which, if any, independent variables had an impact on the Miles-per-Gallon (mpg) of the MechaCar.
+
+The summary output from this Multiple Linear Regression is shown here:
+
+![Multiple Linear Regression Summary](Images/Linear_Model_Summary.png "Linear Model Summary")
+
+As an aid in interpretation, simplified Univariate Linear Regressions were also performed on the 4 Independent Variables with Continuous Measures (`vehicle_length`, `vehicle_weight`, `spoiler_angle`, and `ground_clearance`),
+and a pair of boxplots was generated for the `AWD` which is a Boolean Independent Variable. Since Multiple Linear Regressions are difficult if not impossible to visualize, these simplified models will be useful to refer back
+to when interpreting the results from the Multiple Linear Regression above.
+
+Plots of these linear regressions are shown here in Figure 1, reproduced as a Gallery in Miniature.
+
+(Full-Size Versions are Archived in `Images` Directory of this GitHub Repository)
+
+**Figure 1: Linear Regressions and Boxplots for Independent Variables in `MechaCar_mpg.csv`**
+
+![Figure 1](Images/Figure_00.png "Figure 1")
+
+- Q: Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
+	- A: For this project, we are starting with a baseline p-Value Significance Level of 0.05. With this in mind, looking at the summary output of the Multiple Linear Regression,
+	`vehicle_length` and `ground_clearance` provide a non-random amount of variance to the mpg values. `vehicle_weight` also has a level of non-random contribution, but it is slightly
+	above our 0.05 cutoff. This interpretation is backed up by consulting our series of Univariate Linear Regressions, where Vehicle Length and Ground Clearance both show positive
+	correlation to mpg, with the highest Coefficient of Determination (r-squared) values among the variables modeled.
+
+- Q: Is the slope of the linear model considered to be zero? Why or why not?
+	- A: No, the slope of the linear model is not considered to be zero. This is because the two values that provide a non-random amount of variance to the mpg values
+	have non-zero slopes for their regression equations.
+
+- Q: Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
+	- A: Yes, this linear model effectively predicts the mpg of MechaCar prototypes. With a Combined Coefficient of Determination of 0.7, this shows that 70% of the variation of mpg values
+	can be attributed to the 5 variables modeled against mpg. This result is better than chance, and would be a good starting point for helping to guide engineering decisions for
+	future prototypes, if maximizing mpg was a stated design outcome.
 
 ### Deliverable 2
 
