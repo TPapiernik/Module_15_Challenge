@@ -17,6 +17,7 @@ lm_eqn <- function(y, x, df){
   as.character(as.expression(eq));
 }
 
+# Save Multiple ggplots to Disk at Once
 ggplot_multi_save <- function(save_dir, base_save_name, filetype, base_plot_name, starting_index, ending_index, scale_factor=1) {
   for (i in starting_index:ending_index) {
     if (i < 10) {
@@ -83,6 +84,47 @@ figure_plt5 <- plt5 + geom_boxplot(width=0.1) + xlab("AWD") + geom_point(color="
 
 # Arrange into a Gallery and Save as a Single Figure
 del1_figures_gallery <- grid.arrange(figure_plt1, figure_plt2, figure_plt3, figure_plt4, figure_plt5, ncol=2)
-ggsave("Images/Figure_00.png", plot=del1_figures_gallery, width=10, height=10, units="in")
+#ggsave("Images/Figure_00.png", plot=del1_figures_gallery, width=10, height=10, units="in")
+
 
 ## Deliverable 2
+
+# Import Suspension Coil Data
+coil_data <- read.csv("data/Suspension_Coil.csv")
+
+# Refactor coil_data vectors
+coil_data$VehicleID <- as.factor(coil_data$VehicleID)
+coil_data$Manufacturing_Lot <- as.factor(coil_data$Manufacturing_Lot)
+
+# Summarize coil_data PSI Column
+
+# Total Summary
+total_summary <- coil_data %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI))
+
+# Lot Summary
+lot_summary <- coil_data %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI))
+
+
+## Deliverable 3
+
+# Perform t-tests on coil_data PSI Column
+
+# Overall Samples t-tests
+
+# First, select 50 Random Samples from the Overall Corpus
+coil_data_overall_50_samples <- sample_n(coil_data, 50)
+
+# Then compare sampled data to original population
+t.test(coil_data_overall_50_samples$PSI, mu=mean(coil_data$PSI))
+
+# Samples t-tests by Lot
+
+# Lot 1
+t.test(subset(coil_data, coil_data$Manufacturing_Lot=="Lot1")$PSI, mu=mean(coil_data$PSI))
+
+# Lot 2
+t.test(subset(coil_data, coil_data$Manufacturing_Lot=="Lot2")$PSI, mu=mean(coil_data$PSI))
+
+# Lot 3
+t.test(subset(coil_data, coil_data$Manufacturing_Lot=="Lot3")$PSI, mu=mean(coil_data$PSI))
+

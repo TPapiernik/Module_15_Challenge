@@ -34,7 +34,7 @@ that may help the manufacturing team to alleviate production difficulties.
 ### Resources
 
 - Software:
-	- R Version 4.1.1 (2021-08-10)
+	- R Version 4.1.1 (2021-08-10) (Libraries: dplyr, ggplot2, gridExtra)
 	- RStudio Version 1.4.1717
 - Data:
 	- `MechaCar_mpg.csv`
@@ -109,11 +109,75 @@ Plots of these linear regressions are shown here in Figure 1, reproduced as a Ga
 
 ### Deliverable 2
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet iaculis lorem non sollicitudin. Fusce elementum ac elit finibus auctor. Curabitur orci sem, accumsan a diam sit amet, efficitur tristique velit.
+#### Summary Statistics on Suspension Coils
+
+After the `Suspension_Coil.csv` data was imported into R, summary statistics were generated for the quality control test results, for all samples overall, and grouped by Lot Number.
+
+These summary statistics are shown below in Figures 2 & 3.
+
+**Figure 2: Summary Statistics for All Suspension Coils**
+
+![Figure 2](Images/total_summary.png "Figure 2")
+
+**Figure 3: Summary Statistics for All Suspension Coils, Grouped by Lot Number**
+
+![Figure 3](Images/lot_summary.png "Figure 3")
+
+- Q: The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? Why or why not?
+	- A: **Yes**, According to the current manufacturing data, all lots in total do meet this design specification. This can be seen above in Figure 2.
+	- However, if the lots are examined individually, **No**, Lot 3 does not meet this design specification, as shown above in Figure 3.
+	- This is because if all samples are examined at once, there are enough coils within specification in Lots 1 and 2 to average out the variance present in Lot 3,
+	so that the overall variance is within the specification of being under 100 pounds per square inch.
 
 ### Deliverable 3
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet iaculis lorem non sollicitudin. Fusce elementum ac elit finibus auctor. Curabitur orci sem, accumsan a diam sit amet, efficitur tristique velit.
+#### T-Tests on Suspension Coils
+
+Another alternative to compare manufacturing lots against the population is to implement a series of statistical t-tests which compare means of a sample from a population of data against the mean of the population of data as a whole.
+
+For reference purposes, the population size for the Suspension Coils is 150, and all sample sizes are 50.
+
+As a baseline to look at a sampling of the original population first, 50 random samples were taken from the population and a t-test was implemented using this random sample.
+
+Following this, Lot 1, Lot 2, and Lot 3 were each also tested against the population.
+
+As before, we will continue to utilize a p-Value Significance Level of 0.05.
+
+According to these tests, for the 50 Random Samples we fail to reject the Null Hypothesis, meaning that the means are statistically similar. For Lot 1, we reject the Null Hypothesis and determine that the mean of the
+sample is not statistically similar to the mean of the population. For Lot 2, we reject the Null Hypothesis and determine that the mean of the sample is not statistically similar to the mean of the population. For Lot 3,
+we fail to reject the Null Hypotheses and determine that the means are statistically similar.
+
+It should be noted that the t-test is only used to compare the means of a sample versus a population, under the assumption that the variances are similar. As was demonstrated above in Deliverable 2,
+in this case the variances of these samples are not in fact similar, therefore the conclusions drawn from these t-tests results should bear that fact in mind and remember that with the exception of the means, these
+sample and population distributions are not otherwise similar.
+
+The results obtained are summarized here in Table 3.
+
+**Table 3: Summary of t-test Results**
+| Sample           | Mean          | Population Mean     | p-value      | Test Outcome
+|------------------|---------------|---------------------|--------------|-------------
+| 50 Random        | 1499.76       | 1498.78             | 0.306        | Fail to reject Null Hypothesis. Means are statistically similar.
+| Lot1             | 1500.00       | 1498.78             | 1.568e-11    | Reject Null Hypothesis. Means are NOT statistically similar.
+| Lot2             | 1500.20       | 1498.78             | 0.0005911    | Reject Null Hypothesis. Means are NOT statistically similar.
+| Lot3             | 1496.14       | 1498.78             | 0.1589       | Fail to reject Null Hypothesis. Means are statistically similar.
+
+Screenshots of the 4 t-tests are shown here to provide additional information than is summarized above in Table 3.
+
+**Figure 4: t-test Results on 50 Random Samples**
+
+![Figure 4](Images/t-test_50_Random_Samples.png "Figure 4")
+
+**Figure 5: t-test Results for Lot 1**
+
+![Figure 5](Images/t-test_Lot1.png "Figure 5")
+
+**Figure 6: t-test Results for Lot 2**
+
+![Figure 6](Images/t-test_Lot2.png "Figure 6")
+
+**Figure 7: t-test Results for Lot 3**
+
+![Figure 7](Images/t-test_Lot3.png "Figure 7")
 
 ### Deliverable 4
 
