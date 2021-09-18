@@ -128,3 +128,6 @@ t.test(subset(coil_data, coil_data$Manufacturing_Lot=="Lot2")$PSI, mu=mean(coil_
 # Lot 3
 t.test(subset(coil_data, coil_data$Manufacturing_Lot=="Lot3")$PSI, mu=mean(coil_data$PSI))
 
+## Deliverable 4
+
+# See README.md

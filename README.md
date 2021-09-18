@@ -181,7 +181,48 @@ Screenshots of the 4 t-tests are shown here to provide additional information th
 
 ### Deliverable 4
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet iaculis lorem non sollicitudin. Fusce elementum ac elit finibus auctor. Curabitur orci sem, accumsan a diam sit amet, efficitur tristique velit.
+#### Study Design: MechaCar vs Competition
 
+How do the MechaCar Prototypes stack up against their competition? What metrics will we use to guide
+our final design decisions as the MechaCar moves from the Prototype stage into Regular Production?
+
+- Q: What metric or metrics will be tested?
+	- A: Despite what features and style of automobiles are being marketed to American consumers, we Hypothesize that their buying decisions can
+	reliably be predicted by a combination of **Cost** and **City Fuel Efficiency**.
+
+- Q: What is the Null Hypothesis or Alternative Hypothesis?
+	- A: To test our Hypothesis, we will need to specify a Null Hypothesis.
+
+	Namely: There is no statistical correlation between Number of Vehicle Units sold within a given year and vehicle Model
+	and either that vehicle Model's **Cost** or **City Fuel Efficiency**.
+
+- Q: What statistical test(s) will be used and why?
+	- A: In order to test our Hypothesis, we will use a series of Paired Two-Sample t-tests, Two-Way Analysis of Variance, and Multiple Linear Regression. For all tests where
+	p-value carries significance, a significance level of 0.05 will be used.
+
+	The Paired Two-Sample t-tests will help to determine variability between Cost and City Fuel Efficiency of different Vehicle Models. Analysis of Variance will help us to
+	measure how closely the different Independent Variables correlate to the Dependent Variable of Number of Vehicle Model Units Sold. Multiple Linear Regression will help
+	us to quantify and predict which Cost and City Fuel Efficiency design goals should be implemented to achieve a desired outcome in Number of Vehicle Units Sold.
+
+	Predefined Criteria for these Statistical Tests is explained in further detail below in Table 4:
+
+	**Table 4: Statistical Test Criteria for Proposed Competitive Analysis Study**
+	| Statistical Test                  | Brief Explanation of Test Criteria
+	|-----------------------------------|-----------------------------------
+	| Paired Two-Sample t-test          | p-value less than 0.05, reject the Null Hypothesis, meaning either Cost or City Fuel Efficiency have statistically different Means between two different Vehicle Models.
+	| Two-Way ANOVA                     | p-value less than 0.05, reject the Null Hypothesis, meaning that the Cost or City Fuel Efficiency has a statistically meaningful contribution to the Number of Vehicle Model Units Sold for a given sample.
+	| Multiple Linear Regression        | p-value less than 0.05 for a given parameter, that parameter is unlikely to be contributing a random amount of variance to the outcome of the model. Coefficient of Determination (R^2) greater than 0.5, the Linear Regression Equation would be suitable to use for making predictions for possible outcomes based on new input variables.
+
+
+- Q: What data is needed?
+	- A: In order to test our Hypothesis, we will need to combine data from a few different sources. To narrow the scope of our study, we will limit our analysis to
+	the most recent complete 5 year periods prior to the COVID-19 Pandemic, or Calendar Year 2014-2019 in the Continental United States.
+	
+	Baseline data for Total Auto Unit Sales can be obtained from the US Bureau of Economic Analysis. Additional Internal Estimations May have to be performed to
+	classify these Total Auto Unit Sales Figures into separate Vehicle Classes.
+
+	City Fuel Economy Data can be obtained from the US Environmental Protection Agency.
+
+	Cost Data (meaning "Actual Sales Price") can be obtained from Black Book API (current pricing unknown, but the data **IS** theoretically available).
 
 -- END --
