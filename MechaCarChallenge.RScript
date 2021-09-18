@@ -10,7 +10,7 @@ library(gridExtra)
 # Regression Equation Text
 lm_eqn <- function(y, x, df){
   m <- lm(y ~ x, df);
-  eq <- substitute(y == b %.% x + a *","~~R^2~"="~r2,
+  eq <- substitute(y == b %.% x + a *","~~r^2~"="~r2,
                    list(a = format(unname(coef(m)[1]), digits = 3, nsmall = 2),
                         b = format(unname(coef(m)[2]), digits = 3, nsmall = 2),
                         r2 = format(summary(m)$r.squared, digits = 3, nsmall = 3)))
@@ -60,31 +60,37 @@ plt1 <- ggplot(mpg_data, aes(x=vehicle_length, y=mpg))
 lm1 <- lm(mpg ~ vehicle_length, data=mpg_data)
 lm1_yvals <- lm1$coefficients['vehicle_length']*mpg_data$vehicle_length + lm1$coefficients['(Intercept)']
 figure_plt1 <- plt1 + geom_point() + labs(x="Vehicle Length, ft.") + geom_line(aes(y=lm1_yvals), color="red", size=0.75) + geom_text(x=14, y=70, label=lm_eqn(mpg_data$mpg, mpg_data$vehicle_length, mpg_data), parse=TRUE)
+#figure_plt1
 
 plt2 <- ggplot(mpg_data, aes(x=vehicle_weight, y=mpg))
 lm2 <- lm(mpg ~ vehicle_weight, data=mpg_data)
 lm2_yvals <- lm2$coefficients['vehicle_weight']*mpg_data$vehicle_weight + lm2$coefficients['(Intercept)']
 figure_plt2 <- plt2 + geom_point() + labs(x="Vehicle Weight, Lbs.") + geom_line(aes(y=lm2_yvals), color="red", size=0.75) + geom_text(x=5000, y=20, label=lm_eqn(mpg_data$mpg, mpg_data$vehicle_weight, mpg_data), parse=TRUE)
+#figure_plt2
 
 plt3 <- ggplot(mpg_data, aes(x=spoiler_angle, y=mpg))
 lm3 <- lm(mpg ~ spoiler_angle, data=mpg_data)
 lm3_yvals <- lm3$coefficients['spoiler_angle']*mpg_data$spoiler_angle + lm3$coefficients['(Intercept)']
 figure_plt3 <- plt3 + geom_point() + labs(x="Spoiler Angle, deg.") + geom_line(aes(y=lm3_yvals), color="red", size=0.75) + geom_text(x=25, y=20, label=lm_eqn(mpg_data$mpg, mpg_data$spoiler_angle, mpg_data), parse=TRUE)
+#figure_plt3
 
 plt4 <- ggplot(mpg_data, aes(x=ground_clearance, y=mpg))
 lm4 <- lm(mpg ~ ground_clearance, data=mpg_data)
 lm4_yvals <- lm4$coefficients['ground_clearance']*mpg_data$ground_clearance + lm4$coefficients['(Intercept)']
 figure_plt4 <- plt4 + geom_point() + labs(x="Ground Clearance, in.") + geom_line(aes(y=lm4_yvals), color="red", size=0.75) + geom_text(x=10, y=60, label=lm_eqn(mpg_data$mpg, mpg_data$ground_clearance, mpg_data), parse=TRUE)
+#figure_plt4
 
 plt5 <- ggplot(mpg_data, aes(x=reorder(AWD, desc(AWD)), y=mpg))
 figure_plt5 <- plt5 + geom_boxplot(width=0.1) + xlab("AWD") + geom_point(color="grey50", alpha=0.50)
+#figure_plt5
 
 # Save Deliverable 1 Plots
-#ggplot_multi_save("Images", "Figure", "png", "figure_plt", 1, 5, scale_factor=0.75)
+ggplot_multi_save("Images", "Figure", "png", "figure_plt", 1, 5, scale_factor=0.75)
 
 # Arrange into a Gallery and Save as a Single Figure
 del1_figures_gallery <- grid.arrange(figure_plt1, figure_plt2, figure_plt3, figure_plt4, figure_plt5, ncol=2)
-#ggsave("Images/Figure_00.png", plot=del1_figures_gallery, width=10, height=10, units="in")
+#del1_figures_gallery
+ggsave("Images/Figure_00.png", plot=del1_figures_gallery, width=10, height=10, units="in")
 
 
 ## Deliverable 2
